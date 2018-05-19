@@ -1,0 +1,82 @@
+version: "3.3"
+
+services:
+  back-build: 
+    build: 
+      context: .
+      dockerfile: Dockerfile.back.build
+    command: tsc --watch 
+    volumes: 
+      - type: bind
+        source: ./back/src
+        target: /src
+      - type: bind  
+        source: ./back/dist
+        target: /dist
+      - type: bind
+        source: ./back/test
+        target: /test
+      - type: bind
+        source: ./back/tsconfig.json
+        target: /tsconfig.json
+
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile.nodemon
+    depends_on: 
+      - back-build
+    volumes:
+      - type: bind
+        source: ./back/dist
+        target: /app/dist
+      - type: bind
+        source: ./back/src
+        target: /app/src
+      - type: bind
+        source: ./back/test
+        target: /app/test
+      - type: bind
+        source: ./back/tsconfig.json
+        target: /app/tsconfig.json
+    command:  nodemon -L --inspect=0.0.0.0:5858 --watch dist --watch dist/src/app.js dist/src/app.js
+    ports:
+      - "8080:8080"
+      - "5858:5858"
+
+  back-test: 
+    build:
+      context: .
+      dockerfile: Dockerfile.nodemon 
+    depends_on:
+      - back-build
+    working_dir: /app
+    volumes: 
+      - type: bind
+        source: ./back/dist
+        target: /app/dist
+      - type: bind
+        source: ./back/src
+        target: /app/src
+      - type: bind
+        source: ./back/test
+        target: /app/test
+      - type: bind
+        source: ./back/tsconfig.json
+        target: /app/tsconfig.json
+    command: mocha --inspect=0.0.0.0:5859 ./dist/test/**/*.test.js --watch
+    ports:
+      - "3000:3000"
+      - "5859:5859"
+
+ 
+
+  
+  
+
+  
+
+
+    
+
+  

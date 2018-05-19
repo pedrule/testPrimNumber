@@ -1,0 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const calc0fPremium_1 = require("./calc0fPremium");
+exports.number = new calc0fPremium_1.CalcPremiumNumber();
+exports.number.target = 10001;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vc3JjL2FwcC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLG1EQUFvRDtBQUt2QyxRQUFBLE1BQU0sR0FBRyxJQUFJLGlDQUFpQixFQUFFLENBQUM7QUFDOUMsY0FBTSxDQUFDLE1BQU0sR0FBRyxLQUFLLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDYWxjUHJlbWl1bU51bWJlciB9IGZyb20gXCIuL2NhbGMwZlByZW1pdW1cIjtcclxuXHJcblxyXG5cclxuXHJcbmV4cG9ydCBjb25zdCBudW1iZXIgPSBuZXcgQ2FsY1ByZW1pdW1OdW1iZXIoKTtcclxubnVtYmVyLnRhcmdldCA9IDEwMDAxOyJdfQ==
