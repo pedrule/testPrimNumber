@@ -53,7 +53,7 @@ describe('specs function isDividedByItself', () => {
     })
 })
 
-it('should return 10001 nth prime number', function(done: Function) {
+it('should return 10001 nth prime number and it is equal to 104743', function(done: Function) {
     this.timeout(10000);
     this.element = new CalcPremiumNumber();
     this.element.target = 10001;
